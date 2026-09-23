@@ -2341,6 +2341,104 @@
       }
     }
 
+
+    /* v32 — HERO DESKTOP: enquadramento cinematográfico sem alterar mobile */
+    @media (min-width:1000px){
+
+      .hero{
+        height:clamp(680px,40vw,760px);
+        min-height:680px;
+        background:
+          radial-gradient(circle at 78% 42%,rgba(170,180,195,.11),transparent 34%),
+          linear-gradient(90deg,#07090d 0%,#080a0e 30%,#0a0d11 100%);
+      }
+
+      .hero .hero-media{
+        inset:0;
+        overflow:hidden;
+        background:#07090d;
+      }
+
+      /* Em vez de esticar a foto por todo o hero, ela ocupa a área visual
+         do carro à direita. Isso mostra muito mais do ambiente e reduz o zoom. */
+      .hero .hero-media img{
+        position:absolute;
+        inset:auto 0 0 auto;
+        width:80%;
+        height:100%;
+        max-width:none;
+        object-fit:cover;
+        object-position:53% 50%;
+        transform:none;
+        filter:saturate(1.01) contrast(1.025) brightness(.97);
+        -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.28) 7%,#000 20%,#000 100%);
+        mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.28) 7%,#000 20%,#000 100%);
+      }
+
+      /* Fusão mais natural entre a área editorial e a fotografia. */
+      .hero::before{
+        background:
+          linear-gradient(90deg,
+            rgba(7,9,13,1) 0%,
+            rgba(7,9,13,.99) 15%,
+            rgba(7,9,13,.93) 25%,
+            rgba(7,9,13,.63) 38%,
+            rgba(7,9,13,.20) 51%,
+            rgba(7,9,13,.04) 68%,
+            rgba(7,9,13,.10) 100%),
+          linear-gradient(0deg,
+            rgba(5,7,10,.62) 0%,
+            rgba(5,7,10,.08) 24%,
+            transparent 48%,
+            rgba(5,7,10,.08) 100%);
+      }
+
+      .hero::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:-1;
+        pointer-events:none;
+        background:
+          radial-gradient(circle at 72% 45%,transparent 0 36%,rgba(0,0,0,.10) 72%,rgba(0,0,0,.20) 100%);
+      }
+
+      /* Texto ligeiramente mais alto e compacto para equilibrar com o carro. */
+      .hero .hero-copy{
+        top:clamp(176px,10vw,202px);
+        width:clamp(420px,27vw,500px);
+      }
+
+      .hero .hero-copy h1{
+        font-size:clamp(60px,3.75vw,72px);
+      }
+
+      .hero .hero-copy p{
+        max-width:445px;
+      }
+
+      /* As informações laterais acompanham a nova composição. */
+      .hero .hero-side{
+        top:47%;
+      }
+
+      .hero .hero-car{
+        bottom:24px;
+      }
+    }
+
+    /* Full HD e ultrawide: evita que o Corvette volte a parecer gigante. */
+    @media (min-width:1600px){
+      .hero .hero-media img{
+        width:77%;
+        object-position:52% 50%;
+      }
+
+      .hero .hero-copy{
+        top:190px;
+      }
+    }
+
 </style>
 </head>
 <body>

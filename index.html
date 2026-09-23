@@ -2439,6 +2439,92 @@
       }
     }
 
+
+    /* v33 — ajuste EXCLUSIVO do hero mobile */
+    @media (max-width:720px){
+
+      /* Remove o texto abaixo de "No mais alto padrão." apenas no celular */
+      .hero .hero-copy p{
+        display:none !important;
+      }
+
+      /* Usa o espaço liberado para aproximar o CTA do título */
+      .hero .hero-copy .btn{
+        margin-top:18px;
+        min-height:44px;
+        padding:0 19px;
+        gap:18px;
+        position:relative;
+        overflow:visible;
+        box-shadow:
+          0 10px 28px rgba(213,37,45,.30),
+          0 0 0 0 rgba(229,44,50,.34);
+        animation:mk3MobileCtaPulse 2.15s ease-in-out infinite;
+        transform-origin:center;
+      }
+
+      /* Halo externo elegante — sem exagero */
+      .hero .hero-copy .btn::after{
+        content:"";
+        position:absolute;
+        inset:-5px;
+        border-radius:4px;
+        border:1px solid rgba(239,70,77,.28);
+        opacity:.28;
+        pointer-events:none;
+        animation:mk3MobileCtaHalo 2.15s ease-out infinite;
+      }
+
+      .hero .hero-copy .btn .arrow{
+        animation:mk3MobileCtaArrow 2.15s ease-in-out infinite;
+      }
+    }
+
+    @media (max-width:390px){
+      .hero .hero-copy .btn{
+        margin-top:15px;
+      }
+    }
+
+    @keyframes mk3MobileCtaPulse{
+      0%,100%{
+        transform:scale(1);
+        box-shadow:
+          0 10px 28px rgba(213,37,45,.28),
+          0 0 0 0 rgba(229,44,50,0);
+      }
+      50%{
+        transform:scale(1.022);
+        box-shadow:
+          0 13px 32px rgba(213,37,45,.38),
+          0 0 0 8px rgba(229,44,50,.055);
+      }
+    }
+
+    @keyframes mk3MobileCtaHalo{
+      0%{
+        transform:scale(.98);
+        opacity:.34;
+      }
+      70%,100%{
+        transform:scale(1.075);
+        opacity:0;
+      }
+    }
+
+    @keyframes mk3MobileCtaArrow{
+      0%,60%,100%{transform:translateX(0)}
+      75%{transform:translateX(4px)}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      .hero .hero-copy .btn,
+      .hero .hero-copy .btn::after,
+      .hero .hero-copy .btn .arrow{
+        animation:none !important;
+      }
+    }
+
 </style>
 </head>
 <body>
